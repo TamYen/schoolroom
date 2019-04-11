@@ -1,5 +1,5 @@
 <!-- approve.blade.php -->
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
   <div class="container">
     <table class="table table-striped">
@@ -25,6 +25,13 @@
            {{csrf_field()}}
             <input type="hidden" name="_method" value="PUT">
             <input type="submit" class="btn btn-primary" value="Okk">
+          </form>
+        </td>
+        <td>
+          <form method="POST" action="{{ action('RoomSessionController@nonApprove', $room->id)}}">
+           {{csrf_field()}}
+            <input type="hidden" name="_method" value="PATCH">
+            <input type="submit" class="btn btn-warning" value="X">
           </form>
         </td>
       </tr>

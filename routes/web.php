@@ -30,6 +30,11 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::get('/booking/create', 'RoomSessionController@create');
     Route::get('/booking/approve', 'RoomSessionController@roomsessionSubscried');
     Route::put('/booking/approve/{booking}', 'RoomSessionController@approve');
+    Route::patch('/booking/approve/{id}', 'RoomSessionController@nonApprove');
+
+    Route::get('/booking/history', 'RoomSessionController@showHistory');
+    Route::get('/booking/history/{id}', 'RoomSessionController@removeSubscribe');
+
     Route::put('/booking/{booking}', 'RoomSessionController@subscribe');
     // Route::put('/booking/{booking}', 'RoomSessionController@roomsessionSubscried');
     Route::resource('/booking', 'RoomSessionController');

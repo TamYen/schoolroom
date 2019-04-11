@@ -1,5 +1,5 @@
 <!-- index.blade.php -->
-@extends('layouts.app')
+@extends('layouts.teacher')
 @section('content')
   <div class="container">
     <table class="table table-striped">
@@ -22,7 +22,7 @@
           <form method="POST" action="{{ action('RoomSessionController@subscribe', $room->id)}}">
            {{csrf_field()}}
             <input type="hidden" name="_method" value="PUT">
-            <input type="submit" class="btn btn-primary" value="Dang ky">
+            <input type="submit" class="btn btn-primary" value="Đăng ký">
           </form>
         </td>
       </tr>

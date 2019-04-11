@@ -2,6 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
+    <meta name="AUTHOR" content="Nguyen Duc Trung">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,6 +13,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/mysite.css') }}" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
 
@@ -43,8 +45,8 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
+                    <ul class="nav navbar-nav active">
+                        @yield('menu')
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -80,6 +82,14 @@
         </nav>
 
         @yield('content')
+    </div>
+
+    <div class="menu"></div>
+
+    <div class="footer">
+        <div class="center-footer">
+            &copy; Nguyễn Đức Trung
+        </div>
     </div>
 
     <!-- Scripts -->

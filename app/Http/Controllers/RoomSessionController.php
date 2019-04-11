@@ -9,7 +9,6 @@ use Carbon\Carbon;
 use App\Room;
 use App\RoomSession;
 use App\Shift;
-use App\Http\Requests\SearchRoom;
 
 class RoomSessionController extends Controller
 {
@@ -143,7 +142,7 @@ class RoomSessionController extends Controller
         $roomsession->subscriber = null;
         $roomsession->status = null;
         $roomsession->save();
-        return redirect('/history/subscribes');
+        return redirect('/booking/history');
     }
 
     /// duyet phong: chap nhan
@@ -172,8 +171,9 @@ class RoomSessionController extends Controller
                     ->join('rooms', 'room_sessions.room', '=', 'rooms.id')
                     ->select('room_sessions.status','room_sessions.id','room_sessions.shift','room_sessions.date', 'rooms.name as roomname', 'rooms.seats as seats')
                     ->where('room_sessions.subscriber', Auth::user()->id)
+                    ->orderBy('room_sessions.date', 'DESC')
                     ->get();
-        return view('history', compact('result'));
+        return view('booking.history', compact('result'));
 
     }
     /**

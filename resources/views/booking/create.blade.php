@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 @php ($day = isset($_GET['day']) ? $_GET['day'] : "")
@@ -55,7 +55,7 @@
               <input type="hidden" name="room" value="{{$room->id}}">
               <input type="hidden" name="shift" value={{$shift}}>
               <input type="hidden" name="date" value={{$day}}>
-              <input type="submit" class="btn btn-danger" value="Thêm">
+              <input type="submit" class="btn btn-primary" value="Thêm">
             </form>
           </td>
         </tr>
